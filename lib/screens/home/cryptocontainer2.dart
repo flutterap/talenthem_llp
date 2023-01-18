@@ -32,7 +32,7 @@ class Cryptocontainer2 extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
@@ -41,46 +41,63 @@ class Cryptocontainer2 extends StatelessWidget {
                   child: Image.network(image),
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 100,
-                          child: Text(
+                    Container(
+                      width: 280,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
                             name,
-                            // overflow: TextOverflow.clip,
+                            style: const TextStyle(
+                                color: Color(0xff62d3da),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 80,
-                        ),
-                        Text(
-                          price.toString(),
-                          style:
-                              const TextStyle(color: Colors.red, fontSize: 24),
-                        ),
-                      ],
+                          Text(
+                            "\$$price",
+                            textAlign: TextAlign.right,
+                            style: const TextStyle(
+                                color: Colors.deepOrange,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Text(symbol.toUpperCase()),
-                        const SizedBox(
-                          width: 170,
-                        ),
-                        Text(
-                          changePercentage.toDouble() < 0
-                              // ignore: prefer_interpolation_to_compose_strings
-                              ? '' +
-                                  changePercentage.toDouble().toString() +
-                                  '%'
-                              // ignore: prefer_interpolation_to_compose_strings
-                              : '+' +
-                                  changePercentage.toDouble().toString() +
-                                  '%',
-                        )
-                      ],
+                    Container(
+                      width: 280,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            symbol.toUpperCase(),
+                            style: const TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            changePercentage.toDouble() < 0
+                                // ignore: prefer_interpolation_to_compose_strings
+                                ? '' +
+                                    changePercentage.toDouble().toString() +
+                                    '%'
+                                // ignore: prefer_interpolation_to_compose_strings
+                                : '+' +
+                                    changePercentage.toDouble().toString() +
+                                    '%',
+                            style: TextStyle(
+                                color: changePercentage < 0
+                                    ? Colors.red
+                                    : Colors.green,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),

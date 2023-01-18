@@ -17,10 +17,22 @@ AppBar ApplicationAppBar({
   return appBar ??
       AppBar(
         leadingWidth: 30,
+        leading: Builder(
+          builder: (context) => Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: IconButton(
+              icon: const Icon(
+                Icons.menu_sharp,
+                color: Colors.white,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
+          ),
+        ),
         title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: const [
               // Image.asset(
               //   // 'assets/images/name_compress.png',
               //   //  width: 80,
@@ -32,12 +44,12 @@ AppBar ApplicationAppBar({
               // const SizedBox(
               //   width: 10,
               // ),
-              if (appBarTitle != null)
-                Text(
-                  "$appBarTitle",
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w500),
-                ),
+              // if (appBarTitle != null)
+              //   Text(
+              //     "$appBarTitle",
+              //     style: const TextStyle(
+              //         fontSize: 20, fontWeight: FontWeight.w500),
+              //   ),
             ]),
 
         // appBarTitle != null

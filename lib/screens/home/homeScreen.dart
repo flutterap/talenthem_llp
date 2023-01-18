@@ -197,9 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
               } else {
                 return Container(
                   width: double.infinity,
-                  height: 180,
+                  height: 185,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    padding: EdgeInsets.symmetric(vertical: 8),
                     child: ListView.builder(
                         itemCount: snapshot.data.length,
                         shrinkWrap: true,

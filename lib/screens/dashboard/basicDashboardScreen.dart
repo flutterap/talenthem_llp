@@ -28,11 +28,16 @@ class _BasicDashboardScreenState extends State<BasicDashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ApplicationAppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           context: context,
           appBarTitle: _titles.elementAt(_selectedIndex).tr,
           actions: [
             IconButton(
-              icon: const Icon(Icons.notifications),
+              icon: const Icon(
+                Icons.notifications_none_outlined,
+                color: Colors.black87,
+              ),
               tooltip: 'notification',
               onPressed: () {
                 // handle the press
@@ -40,6 +45,7 @@ class _BasicDashboardScreenState extends State<BasicDashboardScreen> {
             ),
           ]),
       drawer: DrawerLayout(),
+      drawerScrimColor: Colors.black87,
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
